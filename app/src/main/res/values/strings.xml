@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Part One PopularMovies App</string>
+    <string name="error_msg">Please, reload the page.</string>
+    <string name="movie_poster">movie_poster</string>
+    <string name="button_fav">Mark as Favorite</string>
+
+    <!--Menus-->
+    <string name="most_popular">Most popular</string>
+    <string name="top_rated">Top rated</string>
+
+    <!--Error msg-->
+    <string name="error_message">
+        An error has occurred. Please try again by clicking REFRESH
+    </string>
+</resources>

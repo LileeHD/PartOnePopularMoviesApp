@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailActivity">
+
+    <TextView
+        android:id="@+id/movie_title"
+        app:layout_constraintBottom_toTopOf="@+id/movie_poster_detail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Movie Title"
+        android:layout_width="413dp"
+        android:layout_height="140dp"
+        android:layout_marginBottom="16dp"
+        android:background="#009688"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:text=""
+        android:textColor="#fff"
+        android:textSize="50sp" />
+
+    <ImageView
+        android:id="@+id/movie_poster_detail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movie_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/movie_poster"
+        android:src="@drawable/movieposter"
+        android:layout_marginLeft="16dp" />
+
+    <TextView
+        android:id="@+id/movie_release-date"
+        app:layout_constraintStart_toEndOf="@+id/movie_poster_detail"
+        app:layout_constraintTop_toBottomOf="@+id/movie_title"
+        tools:text="2018"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="24dp"
+        android:text=""
+        android:textSize="30sp"
+        android:layout_marginLeft="40dp" />
+
+    <TextView
+        android:id="@+id/movie_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="26dp"
+        android:text=""
+        android:textColor="#000"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/movie_poster_detail"
+        app:layout_constraintTop_toBottomOf="@+id/movie_release-date"
+        tools:text="8.1/10" />
+
+    <Button
+        android:id="@+id/fav_btn"
+        style="@style/Button"
+        app:layout_constraintStart_toEndOf="@+id/movie_poster_detail"
+        app:layout_constraintTop_toBottomOf="@+id/movie_rating"
+        android:layout_width="99dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/button_fav"
+        android:textSize="12sp"
+        android:layout_marginLeft="40dp" />
+
+    <TextView
+        android:id="@+id/movie_overview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movie_poster_detail"
+        tools:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="" />
+
+</android.support.constraint.ConstraintLayout>
