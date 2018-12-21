@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
@@ -32,13 +31,13 @@ public class PosterAdapter extends RecyclerView.Adapter<PosterAdapter.PosterView
     @Override
     public void onBindViewHolder(@NonNull PosterViewHolder posterViewHolder, int i) {
         Movie currentMovie = mMovieList.get(i);
-//        String posterUrl = currentMovie.getmPosterPath();
-        String text = currentMovie.getmTitle();
-//        Picasso.with(mContext)
-//                .load(posterUrl)
-//                .fit()
-//                .centerInside()
-//                .into(posterViewHolder.mImageView);
+        String posterUrl = currentMovie.getmPosterPath();
+
+        Picasso.with(mContext)
+                .load(posterUrl)
+                .fit()
+                .centerInside()
+                .into(posterViewHolder.mImageView);
     }
 
     @Override
@@ -47,13 +46,11 @@ public class PosterAdapter extends RecyclerView.Adapter<PosterAdapter.PosterView
     }
 
     public class PosterViewHolder extends RecyclerView.ViewHolder {
-//        public ImageView mImageView;
-        public TextView text;
+        public ImageView mImageView;
 
         public PosterViewHolder(@NonNull View itemView) {
             super(itemView);
-            text = itemView.findViewById(R.id.text);
-//            mImageView = itemView.findViewById(R.id.movie_thumbnail);
+            mImageView = itemView.findViewById(R.id.movie_thumbnail);
         }
     }
 }

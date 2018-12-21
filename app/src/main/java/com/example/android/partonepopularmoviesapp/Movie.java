@@ -8,9 +8,9 @@ public class Movie {
     private String mRating;
     private String mOverview;
 
-    public Movie(String title) {
-        this.mTitle = title;
-//        this.mPosterPath = posterPath;
+    public Movie(String posterPath) {
+//        this.mTitle = title;
+        this.mPosterPath = posterPath;
 //        this.mRelease_date = release_date;
 //        this.mRating = rating;
 //        this.mOverview = overview;
