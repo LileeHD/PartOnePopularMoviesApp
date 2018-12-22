@@ -3,18 +3,12 @@ package com.example.android.partonepopularmoviesapp;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -39,16 +33,10 @@ public class MainActivity extends AppCompatActivity implements PosterAdapter.OnI
     public static final String EXTRA_DATE = "releaseDate";
     public static final String EXTRA_RATING = "voteAverage";
     public static final String EXTRA_OVERVIEW = "moviePitch";
-//
-//    public static String DEFAULT_URL = "https://api.themoviedb.org/3/movie/popular?api_key=e9a4d258ab2f1609f16bd29d0eef3719";
-//    String TOP_RATED_URL = "https://api.themoviedb.org/3/movie/top_rated?api_key=e9a4d258ab2f1609f16bd29d0eef3719";
 
-
-
+    protected MovieDbURLBuilder movieDbURLBuilder;
     private RecyclerView mRecyclerView;
-//    TODO s'occuper de ces deux là
-    private ProgressBar mProgressBar;
-    private TextView error_msg;
+
     private PosterAdapter mPosterAdapter;
     private ArrayList<Movie> mMovieList;
     private RequestQueue mRequestQueue;
@@ -61,30 +49,24 @@ public class MainActivity extends AppCompatActivity implements PosterAdapter.OnI
         mRecyclerView = findViewById(R.id.recycler_view);
         mRecyclerView.setHasFixedSize(true);
 
-        mProgressBar = (ProgressBar) findViewById(R.id.progress_bar);
-        error_msg = findViewById(R.id.error_msg_tv);
-
-        if(MainActivity.this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
+        if (MainActivity.this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
             mRecyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(), 2));
-        }
-        else{
+        } else {
             mRecyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(), 4));
         }
-
 
         mMovieList = new ArrayList<>();
 
         mRequestQueue = Volley.newRequestQueue(this);
 
-        callRequest();
+        movieDbURLBuilder = new MovieDbURLBuilder();
+
+        callRequest(movieDbURLBuilder.sortBy("popular").getUrl());
     }
 
 
-    private void callRequest() {
-        String defaultUrl = "https://api.themoviedb.org/3/movie/popular?api_key=e9a4d258ab2f1609f16bd29d0eef3719";
-        String topRatedUrl = "https://api.themoviedb.org/3/movie/top_rated?api_key=e9a4d258ab2f1609f16bd29d0eef3719";
-
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, defaultUrl, null, new Response.Listener<JSONObject>() {
+    private void callRequest(String movieDbUrl) {
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, movieDbUrl, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
@@ -136,12 +118,13 @@ public class MainActivity extends AppCompatActivity implements PosterAdapter.OnI
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.most_popular:
-                return true;
+                break;
             case R.id.top_rated:
-                return true;
+                break;
             default:
-                return super.onOptionsItemSelected(item);
+
         }
+        return super.onOptionsItemSelected(item);
     }
 
 }
