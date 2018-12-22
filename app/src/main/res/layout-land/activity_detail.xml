@@ -8,16 +8,9 @@
 
     <TextView
         android:id="@+id/movie_title"
-        app:layout_constraintBottom_toTopOf="@+id/movie_poster"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Movie Title"
         android:layout_width="688dp"
-        android:layout_height="107dp"
+        android:layout_height="92dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginBottom="16dp"
         android:background="#009688"
         android:gravity="center_vertical"
@@ -26,70 +19,74 @@
         android:paddingRight="16dp"
         android:text=""
         android:textColor="#fff"
-        android:textSize="50sp" />
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/movie_poster_detail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Movie Title" />
 
     <ImageView
-        android:id="@+id/movie_poster"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/movie_title"
+        android:id="@+id/movie_poster_detail"
         android:layout_width="126dp"
         android:layout_height="203dp"
         android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
         android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
         android:contentDescription="@string/movie_poster"
-        android:src="@drawable/movieposter" />
+        android:src="@drawable/movieposter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movie_title" />
 
     <TextView
-        android:id="@+id/movie_release-date"
-        app:layout_constraintStart_toEndOf="@+id/movie_poster"
-        app:layout_constraintTop_toBottomOf="@+id/movie_title"
-        tools:text="2018"
+        android:id="@+id/movie_release_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="20dp"
         android:text=""
-        android:textSize="30sp" />
+        android:textSize="25sp"
+        app:layout_constraintStart_toEndOf="@+id/movie_poster_detail"
+        app:layout_constraintTop_toBottomOf="@+id/movie_title"
+        tools:text="2018-12-17" />
 
     <TextView
         android:id="@+id/movie_rating"
-        app:layout_constraintStart_toEndOf="@+id/movie_poster"
-        app:layout_constraintTop_toBottomOf="@+id/movie_release-date"
-        tools:text="8.1/10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="24dp"
         android:text=""
         android:textColor="#000"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/movie_poster_detail"
+        app:layout_constraintTop_toBottomOf="@+id/movie_release_date"
+        tools:text="8.1/10" />
 
     <Button
         android:id="@+id/fav_btn"
         style="@style/Button"
-        app:layout_constraintStart_toEndOf="@+id/movie_poster"
-        app:layout_constraintTop_toBottomOf="@+id/movie_rating"
         android:layout_width="99dp"
         android:layout_height="40dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="24dp"
         android:text="@string/button_fav"
-        android:textSize="12sp" />
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/movie_poster_detail"
+        app:layout_constraintTop_toBottomOf="@+id/movie_rating" />
 
     <TextView
         android:id="@+id/movie_overview"
+        android:layout_width="312dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:padding="16dp"
+        android:text=""
         app:layout_constraintStart_toEndOf="@+id/fav_btn"
         app:layout_constraintTop_toBottomOf="@+id/movie_title"
-        tools:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-        android:layout_width="355dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="28dp"
-        android:padding="16dp"
-        android:text="" />
+        tools:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." />
 </android.support.constraint.ConstraintLayout>

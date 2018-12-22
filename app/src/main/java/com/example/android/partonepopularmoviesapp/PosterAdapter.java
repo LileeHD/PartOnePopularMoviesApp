@@ -15,6 +15,14 @@ import java.util.ArrayList;
 public class PosterAdapter extends RecyclerView.Adapter<PosterAdapter.PosterViewHolder> {
     private Context mContext;
     private ArrayList<Movie> mMovieList;
+    private OnItemClickListener mListener;
+
+    public interface OnItemClickListener{
+        void onItemClick(int position);
+    }
+    public void setOnItemClickListener(OnItemClickListener listener){
+        mListener = listener;
+    }
 
     public PosterAdapter(Context mContext, ArrayList<Movie> movieList) {
         this.mContext = mContext;
@@ -32,11 +40,8 @@ public class PosterAdapter extends RecyclerView.Adapter<PosterAdapter.PosterView
     public void onBindViewHolder(@NonNull PosterViewHolder posterViewHolder, int i) {
         Movie currentMovie = mMovieList.get(i);
         String posterUrl = currentMovie.getmPosterPath();
-
         Picasso.with(mContext)
                 .load(posterUrl)
-                .fit()
-                .centerInside()
                 .into(posterViewHolder.mImageView);
     }
 
@@ -51,6 +56,17 @@ public class PosterAdapter extends RecyclerView.Adapter<PosterAdapter.PosterView
         public PosterViewHolder(@NonNull View itemView) {
             super(itemView);
             mImageView = itemView.findViewById(R.id.movie_thumbnail);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(mListener != null){
+                        int position = getAdapterPosition();
+                        if(position != RecyclerView.NO_POSITION){
+                            mListener.onItemClick(position);
+                        }
+                    }
+                }
+            });
         }
     }
 }
